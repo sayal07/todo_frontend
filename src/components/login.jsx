@@ -25,10 +25,15 @@ export default function Login() {
     }
   };
 
+  const goHome = () => {
+    navigate('/');
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center px-4">
       <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Welcome Back</h2>
+        
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
             <label className="block text-sm text-gray-600 mb-1">Email</label>
@@ -61,7 +66,9 @@ export default function Login() {
               </div>
             </div>
           </div>
+
           {error && <p className="text-red-500 text-sm">{error}</p>}
+
           <button
             type="submit"
             className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-lg transition duration-300"
@@ -69,9 +76,20 @@ export default function Login() {
             Log In
           </button>
         </form>
+
         <p className="text-center text-sm text-gray-500 mt-4">
           Don’t have an account? <a href="#" className="text-indigo-600 hover:underline">Sign up</a>
         </p>
+
+        {/* 🏠 Go to Home Button */}
+        <div className="mt-6 text-center">
+          <button
+            onClick={goHome}
+            className="text-indigo-700 underline hover:text-indigo-900 text-sm"
+          >
+            Go to Home
+          </button>
+        </div>
       </div>
     </div>
   );
